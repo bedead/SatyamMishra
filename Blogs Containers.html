@@ -9,20 +9,36 @@
     <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
-<div name="top" style="background-color: snow; display:flex;">
+<div name="top" class="home-banner" style="background-color: snow; display:flex;margin: auto;">
 				
 <div class="accordion" onclick="myFunction(this)">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
 </div>
 <h2 style="text-align: right;margin-left:20px;color: #222;">Blogs</h2>
+
 </div>
+
 <div id="header">
     <div class="container">
-        <a href="index.html" target="_blank">Home</a>
+        <a href="projects.html" target="_blank">Projects<img src="images/project-icon.png" alt="project-icon" width="25" height="25"></a>
+            <div class="more-options">
+                <a href="Blogs Containers.html">Blogs</a>
+                <a href="About.html">Author</a>
+                <a href="#contact_me">Conatct Me </a>
+            </div>
     </div>
 </div>
+
+<div id="mobile-nav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="About.html">Author</a>
+    <a href="#contact_me">Contact Me</a>
+</div>
+
 
 <div class="row">
     <div class="leftcolumn">
@@ -114,17 +130,25 @@ for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var panel = document.getElementById("header");
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
+    var panel1 = document.getElementById("mobile-nav");
+    if (panel.style.display == "none" && window.screen.width >= 800){
       panel.style.display = "block";
+    } else if (panel.style.display == "block" && window.screen.Width >= 800) {
+        panel.style.display = "none"
+    } else {
+        panel1.style.width = "300px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+        document.body.style.marginLeft = "300px";
     }
   });
 }
 
-
+function closeNav() {
+  document.getElementById("mobile-nav").style.width = "0px";
+  document.body.style.backgroundColor = "white";
+  document.body.style.marginLeft = "0px";
+}
 </script>
-    
 </body>
 </html>
     
